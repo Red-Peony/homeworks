@@ -8,12 +8,12 @@ function getArrayParams(arr) {
       
   for (let i = 0; i < arr.length; i++) {
        
-    if (arr[i] > arr[i-1]) {
+    if (arr[i] >= arr[i-1]) {
       max = arr[i];
-    } else if (arr[i] < arr[i+1]) {
+    } else if ( arr [0] > arr[i] < arr[i+1]) {
       min = arr[i];
-    } else {
-      max = arr [i];
+    } else if (arr[i] === arr[0]) {
+      max = arr[i];
       min = arr[i];
     }
     sum += arr[i];
@@ -23,21 +23,26 @@ function getArrayParams(arr) {
   return { min: min, max: max, avg: avg };
 }
 
-console.log(getArrayParams([5]));
 // Задание 2
 function worker(arr) {
   let sum;
-
-  // Ваш код
-
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
   return sum;
 }
+console.log('worker ' + worker([1, 2, 3]));
 
 function makeWork(arrOfArr, func) {
   let max;
-
-  // Ваш кода
-  // for ...
+  let sumElements;
+  for (let i = 0; i < arrOfArr.length; i++) {
+    sumElements = worker(arrOfArr[i]);
+    
+    if (sumElements => worker(arrOfArr[i-1])) {
+      max = sumElements;
+    } 
+  }
   
   return max;
 }
