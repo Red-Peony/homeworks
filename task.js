@@ -25,28 +25,27 @@ function getArrayParams(arr) {
 
 // Задание 2
 function worker(arr) {
-  let sum;
+  let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
   return sum;
 }
-console.log('worker ' + worker([1, 2, 3]));
 
-function makeWork(arrOfArr, func) {
+function makeWork (arrOfArr, vorker) {
   let max;
   let sumElements;
   for (let i = 0; i < arrOfArr.length; i++) {
     sumElements = worker(arrOfArr[i]);
     
-    if (sumElements => worker(arrOfArr[i-1])) {
+    if (sumElements >= worker(arrOfArr[i-1])) {
       max = sumElements;
     } 
   }
-  
+  console.log(max);
   return max;
 }
-
+console.log('max ' + makeWork([1, 2, 3], [2, 4, 6], [3, 9, 12]));
 // Задание 3
 function worker2(arr) {
   // Ваш код
