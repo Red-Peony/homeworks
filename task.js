@@ -37,7 +37,6 @@ function makeWork (arrOfArr, func) {
   
   for (let i = 0; i < arrOfArr.length; i++) {
     const nozzle = func(arrOfArr[i]);
-    
     if (max < nozzle) {
       max = nozzle;
     } 
