@@ -8,14 +8,14 @@ function getArrayParams(arr) {
       
   for (let i = 0; i < arr.length; i++) {
        
-    if (arr[i] >= arr[i-1]) {
+    if (max < arr[i]) {
       max = arr[i];
-    } else if ( arr [0] > arr[i] < arr[i+1]) {
-      min = arr[i];
-    } else if (arr[i] === arr[0]) {
-      max = arr[i];
+    } 
+    
+    if ( min > arr[i]) {
       min = arr[i];
     }
+    
     sum += arr[i];
   }
   
@@ -32,20 +32,21 @@ function worker(arr) {
   return sum;
 }
 
-function makeWork (arrOfArr, vorker) {
-  let max;
-  let sumElements;
+function makeWork (arrOfArr, func) {
+  let max = 0;
+  
   for (let i = 0; i < arrOfArr.length; i++) {
-    sumElements = worker(arrOfArr[i]);
+    const nozzle = func(arrOfArr[i]);
     
-    if (sumElements >= worker(arrOfArr[i-1])) {
-      max = sumElements;
+    if (max < nozzle) {
+      max = nozzle;
     } 
   }
   console.log(max);
   return max;
 }
-console.log('max ' + makeWork([1, 2, 3], [2, 4, 6], [3, 9, 12]));
+console.log('max: ' + makeWork([[1, 2, 3], [2, 4, 6], [3, 9, 12]], worker));
+
 // Задание 3
 function worker2(arr) {
   // Ваш код
