@@ -49,5 +49,24 @@ console.log('max: ' + makeWork([[1, 2, 3], [2, 4, 6], [3, 9, 12]], worker));
 
 // Задание 3
 function worker2(arr) {
-  // Ваш код
+  let min = Infinity;
+  let max = -Infinity; 
+  let difference = 0;
+        
+  for (let i = 0; i < arr.length; i++) {
+       
+    if (max < arr[i]) {
+      max = arr[i];
+    } 
+    
+    if ( min > arr[i]) {
+      min = arr[i];
+    }
+    
+    difference = max - min;
+  }
+  
+  return Math.abs(difference);
 }
+
+
